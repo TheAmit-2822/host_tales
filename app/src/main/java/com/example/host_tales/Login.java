@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.widget.Button;
 
 public class Login extends AppCompatActivity {
+
+    Button signUp, forgotPassowrd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

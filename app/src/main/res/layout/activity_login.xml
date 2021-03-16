@@ -2,18 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#ffffff"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login"
     android:orientation="vertical"
-    android:background="@color/white"
-    android:padding="15dp">
+    android:padding="15dp"
+    tools:context=".Login">
 
     <ImageView
         android:id="@+id/logoImage"
         android:layout_width="150dp"
         android:layout_height="140dp"
-        android:src="@drawable/host_tales_black_transparent"/>
+        android:src="@drawable/host_tales_black_transparent" />
 
     <TextView
         android:id="@+id/logo_name"
@@ -21,15 +21,16 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/abril_fatface"
         android:text="Hello there, welcome Back!"
-        android:textSize="20sp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/slogan_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/abril_fatface"
         android:text="SignIn to Continue"
-        android:textSize="14sp"
-        android:fontFamily="@font/abril_fatface"/>
+        android:textSize="14sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,60 +40,65 @@
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
             android:id="@+id/username"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Username"
-            android:textColorHint="@color/black"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:textColorHint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
             android:id="@+id/password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Password"
-            app:passwordToggleEnabled="true"
             android:textColorHint="@color/black"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+            android:id="@+id/forgotPassword"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="5dp"
             android:background="#00000000"
+            android:elevation="0dp"
             android:text="Forgot Password?"
-            android:layout_gravity="right"
-            android:elevation="0dp"
-            android:layout_margin="5dp"/>
+            android:textAllCaps="false"
+            android:textColor="@color/black" />
 
         <Button
+            android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LOGIN"
-            android:background="#000"
-            android:textColor="@color/white"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp"
+            android:text="LOGIN"
+            android:background="@color/black"
+            android:textColor="@color/white" />
 
         <Button
+            android:id="@+id/signup_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#00000000"
-            android:text="New User? SingUp Now"
-            android:layout_gravity="right"
+            android:layout_margin="5dp"
             android:elevation="0dp"
-            android:layout_margin="5dp" />
+            android:text="New User? SingUp Now"
+            android:textColor="@color/black"
+            android:background="@color/transparent"/>
 
     </LinearLayout>
 

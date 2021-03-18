@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "530093340347",
+    "project_id": "host-tales",
+    "storage_bucket": "host-tales.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530093340347:android:9ea144117b26beaef9db9e",
+        "android_client_info": {
+          "package_name": "com.example.host_tales"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "530093340347-n4bs2pr18ee5i2e3occ8e2lst8ctmb0r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgZxejQN1WAJM5B9ipxSgW3ODQCXLndcw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "530093340347-n4bs2pr18ee5i2e3occ8e2lst8ctmb0r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

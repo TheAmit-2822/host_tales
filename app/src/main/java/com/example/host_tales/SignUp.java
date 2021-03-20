@@ -71,7 +71,7 @@ public class SignUp extends AppCompatActivity {
 
 
                 UserHelperClass helperClass = new UserHelperClass(name, username, email, phone, password);
-                reference.child(phone).setValue(helperClass);
+                reference.child(username).setValue(helperClass);
 
             }
         });

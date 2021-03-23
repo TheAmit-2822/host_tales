@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import com.google.android.gms.common.util.JsonUtils;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -86,44 +87,45 @@ public class Login extends AppCompatActivity {
 
     // checking and verifiying data with firebase
     private void isUser() {
-         final String userEnteredUsername = username.getEditText().getText().toString().trim();
-         final String userEnteredPassword = username.getEditText().getText().toString().trim();
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
+        final String userEnteredUsername = username.getEditText().getText().toString().trim();
+        final String userEnteredPassword = password.getEditText().getText().toString().trim();
+
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
 
         Query checkUser = reference.orderByChild("username").equalTo(userEnteredUsername);
-
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                if (snapshot.exists()) {
-
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
                     username.setError(null);
                     username.setErrorEnabled(false);
-                    String passwordFromDB = snapshot.child(userEnteredUsername).child( "password").getValue(String.class);
-                    if (passwordFromDB.equals(userEnteredPassword)) {
 
+                    String passwordFromDB = dataSnapshot.child(userEnteredUsername).child("password").getValue(String.class);
+
+                    if (passwordFromDB.equals(userEnteredPassword)) {
                         username.setError(null);
                         username.setErrorEnabled(false);
-                        String nameFromDB = snapshot.child(userEnteredUsername).child("name").getValue(String.class);
-                        String usernameFromDB = snapshot.child(userEnteredUsername).child("username").getValue(String.class);
-                        String emailFromDB = snapshot.child(userEnteredUsername).child("email").getValue(String.class);
-                        String phoneFromDB = snapshot.child(userEnteredUsername).child("phone").getValue(String.class);
-
+                        String nameFromDB = dataSnapshot.child(userEnteredUsername).child("name").getValue(String.class);
+                        String usernameFromDB = dataSnapshot.child(userEnteredUsername).child("username").getValue(String.class);
+                        String phoneNoFromDB = dataSnapshot.child(userEnteredUsername).child("phoneNo").getValue(String.class);
+                        String emailFromDB = dataSnapshot.child(userEnteredUsername).child("email").getValue(String.class);
                         Intent intent = new Intent(getApplicationContext(), UserProfile.class);
                         intent.putExtra("name", nameFromDB);
                         intent.putExtra("username", usernameFromDB);
                         intent.putExtra("email", emailFromDB);
-                        intent.putExtra("phone", phoneFromDB);
-
+                        intent.putExtra("phoneNo", phoneNoFromDB);
+                        intent.putExtra("password", passwordFromDB);
                         startActivity(intent);
                     } else {
-                        password.setError("Incorrect Password");
+
+                        password.setError("Wrong Password");
                         password.requestFocus();
                     }
                 } else {
-                    username.setError("Incorrect Username");
+
+                    username.setError("No such User exist");
                     username.requestFocus();
                 }
             }
@@ -134,6 +136,6 @@ public class Login extends AppCompatActivity {
             }
         });
 
-
     }
+
 }
